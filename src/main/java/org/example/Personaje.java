@@ -1,56 +1,53 @@
 package org.example;
+import java.util.List;
 
 public abstract class Personaje {
-    private final String nombre;
-    private final String tipo;
-    private String apodo;
-    private String descripcion;
-    private double dinero;
 
-    public Personaje(String nombre, String tipo){
-        assert nombre != null && !nombre.isBlank();
-        assert tipo != null && !tipo.isBlank();
+    private String nombre, clasePersonaje, descripcion, apodo;
+
+    private double dineroInicial;
+
+    private List<String> capacidades;
+    private int nivel;
+
+    public Personaje(String nombre, String clasePersonaje, String descripcion, String apodo, double dineroInicial,
+                     List<String> capacidades, int nivel){
         this.nombre = nombre;
-        this.tipo = tipo;
-        this.apodo = "";
-        this.descripcion = "";
-        this.dinero = 100.0;
+        this.clasePersonaje = clasePersonaje;
+        this.descripcion = descripcion;
+        this.apodo = apodo;
+        this.dineroInicial = dineroInicial;
+        this.capacidades = capacidades;
+        this.nivel = nivel;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getClasePersonaje() {
+        return clasePersonaje;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public String getApodo() {
         return apodo;
-    }public String getDescripcion() {
-        return descripcion;
-    }public double getDinero() {
-        return dinero;
-    }public String getNombre() {
-        return nombre;
     }
 
-    public void setApodo(String apodo){
-        assert apodo != null && !apodo.isBlank();
-        this.apodo = apodo;
+    public double getDineroInicial() {
+        return dineroInicial;
     }
 
-    public void setDescripcion(String apodo){
-        assert apodo != null && !apodo.isBlank();
-        this.apodo = apodo;
+    public List<String> getCapacidades() {
+        return capacidades;
     }
 
-    public void agregarDinero(double dinero){
-        assert dinero > 0;
-        this.dinero += dinero;
+    public int getNivel() {
+        return nivel;
     }
 
-    public void retirarDinero(double dinero){
-        assert dinero > 0;
-        assert this.dinero - dinero > 0;
-        this.dinero -= dinero;
-    }
-
-    public void capacidades(){
-
-    }
-
-    public abstract void subirNivel();
+    public abstract BuilderPersonaje builder();
 }

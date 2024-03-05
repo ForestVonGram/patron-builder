@@ -1,15 +1,22 @@
 package org.example;
+import java.util.List;
 
 public class Mago extends Personaje {
     private double inteligencia;
     private double sabiduria;
     private double energiaMagica;
 
-    public Mago(String nombre, String tipo){
-        super(nombre, tipo);
-        this.inteligencia = 100.0;
-        this.sabiduria = 100.0;
-        this.energiaMagica = 150.0;
+    public Mago(String nombre, String tipo, String descriçion, String apodo, double dineroInicial, List<String> capacidades
+                , int nivel, double inteligencia, double sabiduria, double energiaMagica){
+        super(nombre, clasePersonaje, descripcion, apodo, dineroInicial, capacidades, nivel);
+
+        assert inteligencia > 0;
+        assert sabiduria > 0.0;
+        assert energiaMagica > 0;
+
+        this.inteligencia = inteligencia;
+        this.sabiduria = sabiduria;
+        this.energiaMagica = energiaMagica;
     }
 
     public double getEnergiaMagica() {
@@ -28,12 +35,5 @@ public class Mago extends Personaje {
     }
     public double hechizoCuracion() {
         return sabiduria*1.15;
-    }
-
-    @Override
-    public void subirNivel(){
-        this.energiaMagica += 15;
-        this.inteligencia += 10;
-        this.sabiduria += 20;
     }
 }

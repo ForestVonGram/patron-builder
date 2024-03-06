@@ -11,6 +11,7 @@ public class Mago extends Personaje{
 
     public Mago(String nombre, String clasePersonaje, String descripcion, String apodo, double dineroInicial,
                 List<String> capacidades, int nivel, double inteligencia, double sabiduria, double energiaMagica){
+        
         this.nombre = nombre;
         this.clasePersonaje = clasePersonaje;
         this.descripcion = descripcion;
@@ -23,7 +24,7 @@ public class Mago extends Personaje{
         this.energiaMagica = energiaMagica;
     }
 
-    public static BuilderPersonaje builder(){
+    public static BuilderMago builder(){
         return new BuilderMago();
     }
 

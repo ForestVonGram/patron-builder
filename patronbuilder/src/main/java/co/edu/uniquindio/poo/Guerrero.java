@@ -3,22 +3,17 @@ package co.edu.uniquindio.poo;
 import java.util.List;
 
 public class Guerrero extends Personaje{
-    private String nombre, clasePersonaje, descripcion, apodo;
-    private double dineroInicial;
-    private List<String> capacidades;
-    private int nivel;
     private double fuerza, resistencia, vitalidad;
 
     public Guerrero(String nombre, String clasePersonaje, String descripcion, String apodo, double dineroInicial, 
                     List<String> capacidades, int nivel, double fuerza, double resistencia, double vitalidad){
         
-        this.nombre = nombre;
-        this.clasePersonaje = clasePersonaje;
-        this.descripcion = descripcion;
-        this.apodo = apodo;
-        this.dineroInicial = dineroInicial;
-        this.capacidades = capacidades;
-        this.nivel = nivel;
+        super(nombre, clasePersonaje, descripcion, apodo, dineroInicial, capacidades, nivel);
+        
+        assert fuerza > 0:"La fuerza no es válida";
+        assert resistencia > 0:"La resistencia no es válida";
+        assert vitalidad > 0:"La vitalidad no es válida";
+        
         this.fuerza = fuerza;
         this.resistencia = resistencia;
         this.vitalidad = vitalidad;
@@ -28,27 +23,22 @@ public class Guerrero extends Personaje{
         return new BuilderGuerrero();
     }
     
-    //gets
-    public String getNombre() {
-        return nombre;
-    }public String getClasePersonaje(){
-        return clasePersonaje;
-    }public String getDescripcion() {
-        return descripcion;
-    }public String getApodo() {
-        return apodo;
-    }public double getDineroInicial() {
-        return dineroInicial;
-    }public List<String> getCapacidades() {
-        return capacidades;
-    }public int getNivel() {
-        return nivel;
-    }public double getFuerza() {
+    //Getters
+    double getFuerza() {
         return fuerza;
     }public double getResistencia() {
         return resistencia;
     }public double getVitalidad() {
         return vitalidad;
+    }
+
+    //Setters
+    public void setFuerza(double fuerza) {
+        this.fuerza = fuerza;
+    }public void setResistencia(double resistencia) {
+        this.resistencia = resistencia;
+    }public void setVitalidad(double vitalidad) {
+        this.vitalidad = vitalidad;
     }
 
     //Habilidades

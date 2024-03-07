@@ -8,10 +8,13 @@ import java.util.List;
  *
  */
 public class App {
-    public static void main(String[] args) {
-        List<String> capacidades1 = new ArrayList<>();
-        capacidades1.add("Derivar");
-        capacidades1.add("Integrar");
+        public static void main(String[] args) {
+
+        Jugador jugador1 = new Jugador();
+                
+                List<String> capacidades1 = new ArrayList<>();
+                capacidades1.add("Derivar");
+                capacidades1.add("Integrar");
 
         Personaje mago = Mago.builder().nombre("diferecial de x").apodo("dx")
                 .clasePersonaje("Mago")
@@ -52,5 +55,9 @@ public class App {
                 .agilidad(11.1)
                 .precision(1.1)
                 .build();
-    }
+
+        jugador1.adicionarPersonaje(mago);
+        jugador1.adicionarPersonaje(guerrero);
+        jugador1.adicionarPersonaje(arquero);
+        }
 }
